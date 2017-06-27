@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "4.16",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "Garage",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "UWorks",
+			"Enabled": true
+		},
+		{
+			"Name": "VictoryBPLibrary",
+			"Enabled": true,
+			"MarketplaceURL": "http://www.ue4code.com"
+		}
+	]
+}

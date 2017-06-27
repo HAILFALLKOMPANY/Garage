@@ -1,0 +1,7 @@
+Intermediate/
+Binaries/
+Saved/
+
+*.suo
+*.sln
+*.sdf
