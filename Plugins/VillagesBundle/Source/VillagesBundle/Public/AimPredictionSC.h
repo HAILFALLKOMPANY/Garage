@@ -7,6 +7,18 @@
 #include "AimPredictionSC.generated.h"
 
 
+enum EAimCommand
+{
+	verticalAim,
+	horizontalAim
+};
+struct aimData
+{
+	EAimCommand command;
+	float value;
+	float timeStamp;
+};
+
 UCLASS(Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class VILLAGESBUNDLE_API UAimPredictionSC : public USceneComponent
 {
