@@ -24,6 +24,12 @@ public:
 			const FUniqueNetIdRepl & UniqueId,
 			FString & ErrorMessage
 			);
-	
-	
+
+		UFUNCTION(BlueprintImplementableEvent)
+			 void GameWelcomePlayer
+			(
+				UNetConnection * Connection,
+				FString & RedirectURL
+				);
+
 };

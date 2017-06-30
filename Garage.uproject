@@ -13,11 +13,11 @@
 	"Plugins": [
 		{
 			"Name": "UWorks",
-			"Enabled": true
+			"Enabled": false
 		},
 		{
 			"Name": "VictoryBPLibrary",
-			"Enabled": true,
+			"Enabled": false,
 			"MarketplaceURL": "http://www.ue4code.com"
 		}
 	]
