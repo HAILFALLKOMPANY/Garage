@@ -30,6 +30,7 @@ public class VillagesBundle : ModuleRules
 			new string[]
 			{
 				"Core",
+                
 				
 				// ... add other public dependencies that you statically link with here ...
 			}
@@ -43,7 +44,7 @@ public class VillagesBundle : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
-
+                "OnlineSubsystemUtils"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

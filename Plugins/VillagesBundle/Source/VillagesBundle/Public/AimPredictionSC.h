@@ -28,9 +28,9 @@ public:
 	// Sets default values for this component's properties
 	UAimPredictionSC();
 	
-	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Villages")
 	float upperPitchAngleLimit=70;
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Villages")
 	float lowerPitchAngleLimit= -70;
 
 

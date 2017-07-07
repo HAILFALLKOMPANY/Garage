@@ -16,20 +16,6 @@ class VILLAGESBUNDLE_API AVillagesCustomGMB : public AGameModeBase
 		
 public:
 
-		UFUNCTION(BlueprintImplementableEvent)
-		void PreLogin
-		(
-			const FString & Options,
-			const FString & Address,
-			const FUniqueNetIdRepl & UniqueId,
-			FString & ErrorMessage
-			);
-
-		UFUNCTION(BlueprintImplementableEvent)
-			 void GameWelcomePlayer
-			(
-				UNetConnection * Connection,
-				FString & RedirectURL
-				);
+	
 
 };

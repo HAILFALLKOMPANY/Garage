@@ -16,13 +16,7 @@ class VILLAGESBUNDLE_API UVillagesCustomGI : public UGameInstance
 
 public:
 
-		UFUNCTION(BlueprintImplementableEvent)
-		void HandleGameNetControlMessage
-		(
-			class UNetConnection * Connection,
-			uint8 MessageByte,
-			const FString & MessageStr
-		);
+	
 	
 	
 };
