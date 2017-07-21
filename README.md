@@ -23,7 +23,7 @@ You can set ClientBeacon class in default value of OBHO.<br />
 ![Alt text](/TutorialPictures/beacon1.PNG?raw=true "in level Blueprint")
 
 In Client Side<br />
-6.Spawn VillagesCustomOBC.
+6.Spawn VillagesCustomOBC.<br />
 7.Use TryToConnect function from VillagesCustomOBC, enter IP of Beacon Host, port is optional(default is 7787).<br />
 ![Alt text](/TutorialPictures/beacon2.PNG?raw=true "client side")
 
