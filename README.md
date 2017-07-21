@@ -7,4 +7,4 @@ OnlineBeacon
 
 Beacon Blueprint Usage  :  Soon, Very Soon
 
-![Alt text](/TutorialPictures/beacon1.png?raw=true "Optional Title")
+![Alt text](/TutorialPictures/beacon1.PNG?raw=true "Optional Title")
