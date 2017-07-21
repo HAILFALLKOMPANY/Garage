@@ -16,3 +16,14 @@ void AVillagesCustomOBHO::applyBeaconCurrentActorClass()
 	BeaconTypeName = ClientBeaconActorClass->GetName();
 }
 
+void AVillagesCustomOBHO::OnClientConnected(AOnlineBeaconClient * NewClientActor, UNetConnection * ClientConnection)
+{
+	Super::OnClientConnected(NewClientActor, ClientConnection);
+	WhenNewClientSpawned(NewClientActor);
+}
+
+void AVillagesCustomOBHO::DisconnectClient(AOnlineBeaconClient * ClientActor)
+{
+	Super::DisconnectClient(ClientActor);
+}
+

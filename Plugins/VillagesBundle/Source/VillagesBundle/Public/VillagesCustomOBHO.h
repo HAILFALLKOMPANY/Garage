@@ -21,11 +21,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Villages")
 		void applyBeaconCurrentActorClass();
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "Villages")
+	UFUNCTION()
 		void OnClientConnected(AOnlineBeaconClient * NewClientActor, UNetConnection * ClientConnection) override;
-	UFUNCTION(BlueprintImplementableEvent, Category = "Villages")
-		void NotifyClientDisconnected(AOnlineBeaconClient * LeavingClientActor) override;
+	UFUNCTION(BlueprintCallable, Category = "Villages")
+		void DisconnectClient(AOnlineBeaconClient * ClientActor) override;
 
+	UFUNCTION(BlueprintImplementableEvent, Category = "Villages")
+		void WhenNewClientSpawned(AOnlineBeaconClient * NewClientActor);
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Villages")
 		TSubclassOf < AOnlineBeaconClient > configClientBeaconActorClass;

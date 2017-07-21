@@ -6,20 +6,23 @@
 #include "Components/SceneComponent.h"
 #include "AimPredictionSC.generated.h"
 
-
+UENUM()
 enum EAimCommand
 {
 	verticalAim,
 	horizontalAim
 };
-struct aimData
+
+USTRUCT()
+struct FAimData
 {
+	GENERATED_BODY()
 	EAimCommand command;
 	float value;
 	float timeStamp;
 };
 
-UCLASS(Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(Blueprintable, ClassGroup=(Villages), meta=(BlueprintSpawnableComponent) )
 class VILLAGESBUNDLE_API UAimPredictionSC : public USceneComponent
 {
 	GENERATED_BODY()
@@ -27,11 +30,22 @@ class VILLAGESBUNDLE_API UAimPredictionSC : public USceneComponent
 public:	
 	// Sets default values for this component's properties
 	UAimPredictionSC();
+	//Must call from client only!
+	UFUNCTION(BlueprintCallable)
+		void addPitch(float value);
+
+		void addRotation(EAimCommand command, float value);
+		
+
+	UFUNCTION(Server, Reliable, WithValidation)
+		void makeServerRotation(EAimCommand command, float value, FAimData data);
+
+	//Must call from client only!
+	UFUNCTION(BlueprintCallable)
+		void addYaw(float value);
 	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Villages")
-	float upperPitchAngleLimit=70;
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Villages")
-	float lowerPitchAngleLimit= -70;
+	UPROPERTY(EditDefaultsOnly, Category = "Villages")
+		int32 frameStackLimit = 600;
 
 
 protected:

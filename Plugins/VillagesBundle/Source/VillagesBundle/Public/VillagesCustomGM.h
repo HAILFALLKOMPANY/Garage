@@ -3,19 +3,18 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/GameModeBase.h"
-#include "VillagesCustomGMB.generated.h"
+#include "GameFramework/GameMode.h"
+#include "VillagesCustomGM.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class VILLAGESBUNDLE_API AVillagesCustomGMB : public AGameModeBase
+class VILLAGESBUNDLE_API AVillagesCustomGM : public AGameMode
 {
 	GENERATED_BODY()
-		
-public:
-
 	
-
+	
+	
+	
 };
