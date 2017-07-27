@@ -6,10 +6,12 @@ OnlineBeacon<br />
 -Need to spawn OBH in game level(exist in UWorld), spawn it in game instance will not work because Beacon NetDriver will shutdown.<br />
 -Need to add these lines to GameDefaultEngine.ini in order to enable NetDriver for Beacon.<br />
 
-[/Script/Engine.GameEngine]<br />
-!NetDriverDefinitions=ClearArray<br />
-+NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemUtils.IpNetDriver",DriverClassNameFallback="OnlineSubsystemUtils.IpNetDriver")<br />
-+NetDriverDefinitions=(DefName="BeaconNetDriver",DriverClassName="OnlineSubsystemUtils.IpNetDriver",DriverClassNameFallback="OnlineSubsystemUtils.IpNetDriver")<br />
+```
+[/Script/Engine.GameEngine]
+!NetDriverDefinitions=ClearArray
++NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemUtils.IpNetDriver",DriverClassNameFallback="OnlineSubsystemUtils.IpNetDriver")
++NetDriverDefinitions=(DefName="BeaconNetDriver",DriverClassName="OnlineSubsystemUtils.IpNetDriver",DriverClassNameFallback="OnlineSubsystemUtils.IpNetDriver")
+```
 
 Beacon Blueprint Usage  :<br /> 
 You can make Blueprint Class of these three classes(Subclassing).<br />
