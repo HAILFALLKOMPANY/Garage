@@ -3,24 +3,33 @@
 #pragma once
 
 #include "CoreMinimal.h"
+///To access DOREPLIFETIME macro
+#include "Net/UnrealNetwork.h"
 #include "Components/SceneComponent.h"
 #include "AimPredictionSC.generated.h"
 
 UENUM()
-enum EAimCommand
+enum class EAimCommand : uint8
 {
 	verticalAim,
 	horizontalAim
 };
 
+
+
 USTRUCT()
-struct FAimData
+struct FtoServerAimData
 {
 	GENERATED_BODY()
+
+	UPROPERTY()
 	EAimCommand command;
+	UPROPERTY()
 	float value;
-	float timeStamp;
+	UPROPERTY()
+	FRotator recentRotation;
 };
+
 
 UCLASS(Blueprintable, ClassGroup=(Villages), meta=(BlueprintSpawnableComponent) )
 class VILLAGESBUNDLE_API UAimPredictionSC : public USceneComponent
@@ -30,22 +39,44 @@ class VILLAGESBUNDLE_API UAimPredictionSC : public USceneComponent
 public:	
 	// Sets default values for this component's properties
 	UAimPredictionSC();
-	//Must call from client only!
-	UFUNCTION(BlueprintCallable)
+
+	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const;
+	
+
+	///Must call from client only!
+	UFUNCTION(BlueprintCallable, Category = "Villages")
 		void addPitch(float value);
 
 		void addRotation(EAimCommand command, float value);
+
+		///server helper
+		bool checkIsTolerance(FRotator target);
+
+		void smoothRotation();
 		
 
 	UFUNCTION(Server, Reliable, WithValidation)
-		void makeServerRotation(EAimCommand command, float value, FAimData data);
+		void SERVER_makeRotation(FtoServerAimData data);
 
-	//Must call from client only!
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(Client, Reliable)
+		void CLIENT_sendCorrection(FRotator correctedRotation);
+
+	///Must call from client only!
+	UFUNCTION(BlueprintCallable, Category = "Villages")
 		void addYaw(float value);
 	
-	UPROPERTY(EditDefaultsOnly, Category = "Villages")
-		int32 frameStackLimit = 600;
+	UFUNCTION()
+		void OnRep_setNewCurrentRotation();
+
+	///Properties
+
+	UPROPERTY(ReplicatedUsing = OnRep_setNewCurrentRotation)
+		FRotator replicatedRotation;
+
+		FRotator nextRotation;
+	
+
+	
 
 
 protected:
